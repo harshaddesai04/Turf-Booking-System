@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Turf Booking</title>
+    <!-- Favicon -->
+    <link href="./logo/logo.png" rel="icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #528265;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            background-color:#528265;
+            padding: 10px;
+            justify-content: center;
+        }
+        .header img {
+            width: 15%;
+            height: 140px;
+        }
+        .header h1 {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        /* Card layout for turfs */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color:#3a614f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #FF6347;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #FF4500;
+        }
+        /* Booking Form */
+        .booking-form {
+            background-color:#3a614f;
+            padding: 50px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .booking-form label {
+            display: block;
+            margin-top: 10px;
+        }
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        .booking-form button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color:#528265 ;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .booking-form button:hover {
+            background-color:#FF4500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with logo -->
+    <div class="header">
+        <img src="logo/logotran.png" alt="Logo">
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Turf Cards Section -->
+        <div class="section">
+            <h2>Select a Turf</h2>
+            <div class="card-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="images/1.jpeg" alt="Turf 1">
+                    <h3>TCK Turf </h3>
+                    <p>Location:Tarabai Park</p>
+                    <p>Price:1400 Rs./hour</p>
+                    <button onclick="selectTurf('TCK Turf ')">Book Now</button>                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="images/2.jpeg" alt="Turf 2">
+                    <h3> Sports Turf </h3>
+                    <p>Location:Kalamba</p>
+                    <p>Price:1000 Rs./hour</p>
+                    <button onclick="selectTurf('Sports Turf ')">Book Now</button>                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="images/3.jpeg" alt="Turf 3">
+                    <h3>Tiki TakaTurf </h3>
+                    <p>Location:Nagala Park </p>
+                    <p>Price:850 Rs./hour</p>
+                    <button onclick="selectTurf('Tiki Taka Turf ')">Book Now</button>                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Booking Form Section -->
+        <div class="section">
+            <h2>Booking Details</h2>
+            <form class="booking-form" id="bookingForm">
+                <label for="turfName">Selected Turf:</label>
+                <input type="text" id="turfName" name="turfName" readonly>
+
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+
+                <label for="userPhone">Phone Number:</label>
+                <input type="tel" id="userPhone" name="userPhone" placeholder="Enter your phone number" required>
+
+                <label for="bookingDate">Booking Date:</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
+
+                <label for="bookingTime">Booking Time (7 AM - 10 PM):</label>
+                <select id="bookingTime" name="bookingTime" required>
+                    <option value="7:00 AM">7:00 AM</option>
+                    <option value="8:00 AM">8:00 AM</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                    <option value="9:00 PM">9:00 PM</option>
+                </select>
+
+                <button type="submit"><a href="successful.html">Confirm Booking</a></button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JavaScript to handle turf selection -->
+    <script>
+        function selectTurf(turfName) {
+            // Set the selected turf in the booking form
+            document.getElementById('turfName').value = turfName;
+        }
+
+        // Handle form submission (mock function)
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Booking confirmed for ' + document.getElementById('turfName').value + ' on ' + document.getElementById('bookingDate').value + ' at ' + document.getElementById('bookingTime').value);
+        });
+    </script>
+
+</body>
+</html>

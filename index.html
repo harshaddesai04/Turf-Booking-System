@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Favicon -->
+    <link href="./logo/logo.png" rel="icon">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="logo/logo.png" alt="Logo" class="logo">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting and page reload
+
+            // Get the input values
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Admin credentials
+            const adminUsername = "admin";
+            const adminPassword = "Admin@10";
+
+            // User credentials
+            const validUsers = {
+                "lokesh": "Lokesh@10",
+                "viraj": "Viraj@10",
+                "harshad": "Harshad@10"
+            };
+
+            // Check if credentials match for admin
+            if (username === adminUsername && password === adminPassword) {
+                // Redirect to admin page
+                window.location.href = "admin.html";
+            } 
+            // Check if credentials match for valid users
+            else if (validUsers[username] === password) {
+                // Redirect to user booking page
+                window.location.href = "book.html";
+            } else {
+                // Invalid login attempt
+                alert("Invalid username or password.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Successful</title>
+    <!-- Favicon -->
+    <link href="./logo/logo.png" rel="icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #528265;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            position:static;
+             top: 20px;
+            left: 20px;
+        }
+        
+        .header img {
+            width: 300px;
+            height: 200px;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin: 20;
+        }
+
+        .content p {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        /* Pop-up modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency */
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s; /* Fade-in animation for modal */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            color: #528265;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #528265;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            animation: slideIn 0.5s; /* Slide-in animation for content */
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .close {
+            background-color: #528265;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 2;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo in the corner -->
+    <div class="header">
+        <img src="logo/logotran.png" alt="Logo">
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Booking Successful!</h1>
+        <p>Your booking is confirmed.</p>
+    </div>
+
+    <!-- Pop-up modal -->
+    <div class="modal" id="thankYouModal">
+        <div class="modal-content">
+            <h2>Thank You!</h2>
+            <p>Pay at the Venue.</p>
+            <button class="close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById('thankYouModal').style.display = 'flex';
+        }
+
+        // Function to close the modal and close the window
+        function closeModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
+            window.close(); // Attempt to close the tab/window
+        }
+
+        // Open modal after a delay (e.g., after 2 seconds)
+        setTimeout(openModal, 2000);
+    </script>
+
+</body>
+</html>

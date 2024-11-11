@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Favicon -->
+    <link href="./logo/logo.png" rel="icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #528265;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            background-color: #528265;
+        }
+        .header img {
+            width: 15%;
+            height: 140px;
+            padding-top: 15px;
+            align-items: center;
+        }
+        .header h1 {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        input, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            padding: 0;
+            color: white;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #ff9f1c;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff6b00;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #444;
+        }
+        td {
+            background-color: #3a614f;
+        }
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #3a614f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #FF6347;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #FF4500;
+        }
+        .chart-container {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with logo -->
+    <div class="header">
+        <img src="logo/logotran.png" alt="Logo" >
+        <h1></h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Add New Turf Section -->
+        <div class="section">
+            <h2>Add New Turf</h2>
+            <form id="addTurfForm">
+                <label for="newTurfName">Turf Name:</label>
+                <input type="text" id="newTurfName" name="newTurfName" placeholder="Enter turf name" required>
+
+                <label for="newTurfLocation">Location:</label>
+                <input type="text" id="newTurfLocation" name="newTurfLocation" placeholder="Enter turf location" required>
+
+                <label for="newTurfPrice">Price (Rs./hour):</label>
+                <input type="number" id="newTurfPrice" name="newTurfPrice" placeholder="Enter turf price" required>
+
+                <label for="newTurfImage">Turf Image:</label>
+                <input type="file" id="newTurfImage" name="newTurfImage" accept="image/*" required>
+
+                <div class="btn-container">
+                    <button type="submit">Add Turf</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Enlisted Turfs Section -->
+        <div class="section">
+            <h2>Enlisted Turfs</h2>
+            <div class="card-container" id="cardContainer">
+                <!-- Example cards already present -->
+                <div class="card">
+                    <img src="images/1.jpeg" alt="Turf 1">
+                    <h3>TCK Turf</h3>
+                    <p>Location: Tarabai Park</p>
+                    <p>Price: 1400 Rs./hour</p>
+                    <button>Remove</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/2.jpeg" alt="Turf 2">
+                    <h3>Sports Turf</h3>
+                    <p>Location: Kalamba</p>
+                    <p>Price: 1000 Rs./hour</p>
+                    <button>Remove</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/3.jpeg" alt="Turf 3">
+                    <h3>Tiki Taka Turf</h3>
+                    <p>Location: Nagala Park</p>
+                    <p>Price: 850 Rs./hour</p>
+                    <button>Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Bookings Section -->
+        <div class="section">
+            <h2>Recent Bookings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Turf Name</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>TCK Turf</td>
+                        <td>Lokesh S.</td>
+                        <td>16-10-2024</td>
+                        <td>10:00 AM</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sports Castel Turf</td>
+                        <td>Viraj G.</td>
+                        <td>16-10-2024</td>
+                        <td>6:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sports Castel Turf</td>
+                        <td>Soham S.</td>
+                        <td>15-10-2024</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>TCK Turf </td>
+                        <td>Aniruddha D. </td>
+                        <td>13-10-2024</td>
+                        <td>6:00 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Weekly Analytics (Graph) -->
+        <div class="section">
+            <h2>Weekly Bookings Analytics</h2>
+            <div class="chart-container">
+                <canvas id="bookingsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle new turf addition and graph rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // JavaScript to handle new turf addition, removal, and graph rendering
+        const addTurfForm = document.getElementById('addTurfForm');
+        const cardContainer = document.getElementById('cardContainer');
+
+        addTurfForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('newTurfName').value;
+            const location = document.getElementById('newTurfLocation').value;
+            const price = document.getElementById('newTurfPrice').value;
+            const imageInput = document.getElementById('newTurfImage');
+
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newCard = document.createElement('div');
+                    newCard.classList.add('card');
+                    newCard.innerHTML = `
+                        <img src="${e.target.result}" alt="${name}">
+                        <h3>${name}</h3>
+                        <p>Location: ${location}</p>
+                        <p>Price: ${price} Rs./hour</p>
+                        <button class="remove-btn">Remove</button>
+                    `;
+
+                    // Append the new card to the container
+                    cardContainer.appendChild(newCard);
+
+                    // Add event listener to the "Remove" button in the new card
+                    newCard.querySelector('.remove-btn').addEventListener('click', function() {
+                        newCard.remove();
+                    });
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+
+            addTurfForm.reset();
+        });
+
+        // Attach "click" event listeners to existing "Remove" buttons in the card container
+        cardContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-btn')) {
+                const card = event.target.closest('.card');
+                if (card) {
+                    card.remove();
+                }
+            }
+        });
+
+        // Chart.js setup for weekly analytics
+        // Sample data for bookings
+        const bookingsData = {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [{
+                label: 'Bookings',
+                data: [5, 10, 3, 7, 9, 4, 8],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                color: '#ffffff'
+            }]
+        };
+
+        // Configuring the chart
+        const config = {
+            type: 'bar',
+            data: bookingsData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white' // White color for y-axis readings
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white' // White color for x-axis readings
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white' // White color for the graph legend
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render the chart
+        const ctx = document.getElementById('bookingsChart').getContext('2d');
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
