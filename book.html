@@ -112,6 +112,79 @@
         .booking-form button:hover {
             background-color:#FF4500;
         }
+
+         /* Responsive adjustments */
+         @media (max-width: 768px) {
+            .header img {
+                width: 20%;
+                height: auto;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .card h3 {
+                font-size: 16px;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            .booking-form {
+                padding: 20px;
+            }
+            .booking-form label {
+                font-size: 14px;
+            }
+            .booking-form input, .booking-form select {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header img {
+                width: 25%;
+                height: auto;
+            }
+            .header h1 {
+                font-size: 18px;
+            }
+            .container {
+                padding: 5px;
+            }
+            .section h2 {
+                font-size: 18px;
+            }
+            .card h3 {
+                font-size: 14px;
+            }
+            .card p {
+                font-size: 12px;
+            }
+            .card button {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .booking-form {
+                padding: 15px;
+            }
+            .booking-form label {
+                font-size: 12px;
+            }
+            .booking-form input, .booking-form select {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .booking-form button {
+                font-size: 14px;
+            }
+        }
+
     </style>
 </head>
 <body>
